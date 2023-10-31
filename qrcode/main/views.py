@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from pyqrcode import QRCode
-import png
 from django.contrib import messages
-from PIL import Image
+import os
+
 
 # Create your views here.
 
@@ -26,7 +26,9 @@ def qrmaker(request):
 
     QRstring = urls
     url = QRCode(QRstring)
+    os.chdir('/home/toble/Pictures')
     img = url.png(names, scale=8)
+    print(os.listdir('/home/toble/Pictures'))
     
 
    
